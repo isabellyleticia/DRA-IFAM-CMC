@@ -48,7 +48,7 @@ public class ContatoController {
 	}
 	
 	@DeleteMapping("/{id}")
-	void deleteContato(@PathVariable Long id) {
+	void deleteContato(@PathVariable int id) {
 		contatos.remove(id);
 		
 	}
