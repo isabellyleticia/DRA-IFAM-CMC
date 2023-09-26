@@ -61,6 +61,7 @@ public class ContatoController {
 	}
 	
 	@DeleteMapping("/{id}")
+<<<<<<< HEAD
 	ResponseEntity<Contato> deleteContato(@PathVariable int id) {
 		try {
 			contatos.remove(id);
@@ -68,6 +69,10 @@ public class ContatoController {
 		}catch(Exception e) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Contato());
 		}
+=======
+	void deleteContato(@PathVariable int id) {
+		contatos.remove(id);
+>>>>>>> 54a76d9377b47632330a86af49032c5152bf9dcf
 		
 	}
 		
