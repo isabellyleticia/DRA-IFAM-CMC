@@ -1,17 +1,26 @@
 package ifam.edu.dra.chat.model;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
 public class Contato {
-
+	
+	/*
+	 {
+    "nome": "João Pedro",
+    "email": "jp@ifam.com",
+    "telefone": "(92) 99999-0000",
+    "endereco": "Rua da tua prima, 07",
+    "bairro": "Centro",
+    "cidade": "Manaus",
+    "estado": "AM"
+	}
+	  */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
+	 
 	private String nome;
 	private String email;
 	private String telefone;
@@ -23,10 +32,9 @@ public class Contato {
 	public Contato() {
 	}
 
-	public Contato(Long id, String nome, String email, String telefone, String endereco, String bairro, String cidade,
+	public Contato(String nome, String email, String telefone, String endereco, String bairro, String cidade,
 			String estado) {
 		super();
-		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		this.telefone = telefone;
@@ -35,13 +43,13 @@ public class Contato {
 		this.cidade = cidade;
 		this.estado = estado;
 	}
-
+	
+	public void setId(Long id) {
+		
+	}
+	
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getNome() {
@@ -102,8 +110,8 @@ public class Contato {
 
 	@Override
 	public String toString() {
-		return "Contato [id=" + id + ", nome=" + nome + ", email=" + email + ", telefone=" + telefone + ", endereco="
-				+ endereco + ", bairro=" + bairro + ", cidade=" + cidade + ", estado=" + estado + "]";
+		return "Contato [nome=" + nome + ", email=" + email + ", telefone=" + telefone + ", endereco=" + endereco
+				+ ", bairro=" + bairro + ", cidade=" + cidade + ", estado=" + estado + "]";
 	}
 
 }

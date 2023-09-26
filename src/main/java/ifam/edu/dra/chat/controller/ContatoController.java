@@ -17,27 +17,26 @@ import org.springframework.web.bind.annotation.RestController;
 import ifam.edu.dra.chat.model.Contato;
 import ifam.edu.dra.chat.service.ContatoService;
 
-
 @RestController
 @RequestMapping("/contato")
 public class ContatoController {
-
+	
 	@Autowired
 	ContatoService contatoService;
 
 	@GetMapping
 	ResponseEntity<List<Contato>> getContatos() {
 		List<Contato> contatos = contatoService.getContatos();
-		if (contatos.isEmpty())
+		if(contatos.isEmpty())
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(contatos);
 		return ResponseEntity.ok(contatos);
 	}
 
 	@GetMapping("/{id}")
-	ResponseEntity<Contato> getContato(@PathVariable int id) {
+	ResponseEntity<Contato> getContato(@PathVariable long id) {
 		try {
-			return ResponseEntity.ok(contatoService.getContato(id));
-		} catch (Exception e) {
+			return ResponseEntity.ok(contatoService.getContato(id));	
+		} catch(Exception e) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Contato());
 		}
 	}
@@ -49,21 +48,22 @@ public class ContatoController {
 	}
 
 	@PutMapping("/{id}")
-	ResponseEntity<Contato> updateContato(@RequestBody Contato contato, @PathVariable int id) {
+	 ResponseEntity<Contato> setContato(@RequestBody Contato contato, @PathVariable Long id) {
 		try {
-			return ResponseEntity.accepted().body(contatoService.updateContato(id, contato));
-		} catch (Exception e) {
+			return ResponseEntity.accepted().body(contatoService.setContato(id, contato));	
+		} catch(Exception e) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Contato());
 		}
 	}
 
 	@DeleteMapping("/{id}")
-	ResponseEntity<Contato> deleteContato(@PathVariable int id) {
+	ResponseEntity<Contato> deleteContato(@PathVariable long id) {
 		try {
 			contatoService.deleteContato(id);
 			return ResponseEntity.status(HttpStatus.NO_CONTENT).body(new Contato());
-		} catch (Exception e) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Contato());
+		}catch(Exception e) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Contato()); 
 		}
+		
 	}
 }
