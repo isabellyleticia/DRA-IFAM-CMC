@@ -1,26 +1,7 @@
 package ifam.edu.dra.chat.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
 public class Contato {
-	
-	/*
-	 {
-    "nome": "João Pedro",
-    "email": "jp@ifam.com",
-    "telefone": "(92) 99999-0000",
-    "endereco": "Rua da tua prima, 07",
-    "bairro": "Centro",
-    "cidade": "Manaus",
-    "estado": "AM"
-	}
-	  */
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	 
+
 	private String nome;
 	private String email;
 	private String telefone;
@@ -29,8 +10,15 @@ public class Contato {
 	private String cidade;
 	private String estado;
 
-	public Contato() {
+	public String getNome() {
+		return nome;
 	}
+
+	
+	public Contato() {
+		
+	}
+
 
 	public Contato(String nome, String email, String telefone, String endereco, String bairro, String cidade,
 			String estado) {
@@ -42,18 +30,6 @@ public class Contato {
 		this.bairro = bairro;
 		this.cidade = cidade;
 		this.estado = estado;
-	}
-	
-	public void setId(Long id) {
-		
-	}
-	
-	public Long getId() {
-		return id;
-	}
-
-	public String getNome() {
-		return nome;
 	}
 
 	public void setNome(String nome) {
@@ -113,5 +89,4 @@ public class Contato {
 		return "Contato [nome=" + nome + ", email=" + email + ", telefone=" + telefone + ", endereco=" + endereco
 				+ ", bairro=" + bairro + ", cidade=" + cidade + ", estado=" + estado + "]";
 	}
-
 }
