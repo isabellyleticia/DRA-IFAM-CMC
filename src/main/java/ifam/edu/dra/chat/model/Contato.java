@@ -9,9 +9,9 @@ public class Contato {
 	private String bairro;
 	private String cidade;
 	private String estado;
-	
-	public Contato() {}
-	
+
+	public Contato() {
+	}
 
 	public Contato(String nome, String email, String telefone, String endereco, String bairro, String cidade,
 			String estado) {
@@ -24,7 +24,6 @@ public class Contato {
 		this.cidade = cidade;
 		this.estado = estado;
 	}
-
 
 	public String getNome() {
 		return nome;
