@@ -3,8 +3,11 @@ package ifam.edu.dra.chat.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import ifam.edu.dra.chat.model.Contato;
 
+@Service
 public class ContatoService {
 
 	List<Contato> contatos = new ArrayList<>();

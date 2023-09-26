@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ifam.edu.dra.chat.model.Contato;
 import ifam.edu.dra.chat.service.ContatoService;
 
+
 @RestController
 @RequestMapping("/contato")
 public class ContatoController {
