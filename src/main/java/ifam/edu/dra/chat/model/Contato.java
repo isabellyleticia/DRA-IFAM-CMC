@@ -1,28 +1,38 @@
 package ifam.edu.dra.chat.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Contato {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
 	private String nome;
+
 	private String email;
+
 	private String telefone;
+
 	private String endereco;
+
 	private String bairro;
+
 	private String cidade;
+
 	private String estado;
 
-	public String getNome() {
-		return nome;
-	}
-
-	
 	public Contato() {
-		
 	}
 
-
-	public Contato(String nome, String email, String telefone, String endereco, String bairro, String cidade,
+	public Contato(Long id, String nome, String email, String telefone, String endereco, String bairro, String cidade,
 			String estado) {
 		super();
+		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		this.telefone = telefone;
@@ -30,6 +40,18 @@ public class Contato {
 		this.bairro = bairro;
 		this.cidade = cidade;
 		this.estado = estado;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
 	}
 
 	public void setNome(String nome) {
@@ -86,7 +108,8 @@ public class Contato {
 
 	@Override
 	public String toString() {
-		return "Contato [nome=" + nome + ", email=" + email + ", telefone=" + telefone + ", endereco=" + endereco
-				+ ", bairro=" + bairro + ", cidade=" + cidade + ", estado=" + estado + "]";
+		return "Contato [id=" + id + ", nome=" + nome + ", email=" + email + ", telefone=" + telefone + ", endereco="
+				+ endereco + ", bairro=" + bairro + ", cidade=" + cidade + ", estado=" + estado + "]";
 	}
+
 }

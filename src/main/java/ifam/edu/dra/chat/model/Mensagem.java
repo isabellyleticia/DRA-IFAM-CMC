@@ -2,12 +2,36 @@ package ifam.edu.dra.chat.model;
 
 import java.util.Calendar;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Mensagem {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
 	private Calendar dataHora;
+
 	private String conteudo;
+
+	@ManyToOne
 	private Contato emissor;
+
+	@ManyToOne
 	private Contato receptor;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public Calendar getDataHora() {
 		return dataHora;
@@ -43,7 +67,7 @@ public class Mensagem {
 
 	@Override
 	public String toString() {
-		return "Mensagem [dataHora=" + dataHora + ", conteudo=" + conteudo + ", emissor=" + emissor + ", receptor="
-				+ receptor + "]";
+		return "Mensagem [id=" + id + ", dataHora=" + dataHora + ", conteudo=" + conteudo + ", emissor=" + emissor
+				+ ", receptor=" + receptor + "]";
 	}
 }

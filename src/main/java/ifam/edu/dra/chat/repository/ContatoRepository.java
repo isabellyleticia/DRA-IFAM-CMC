@@ -6,5 +6,4 @@ import ifam.edu.dra.chat.model.Contato;
 
 public interface ContatoRepository extends JpaRepository<Contato, Long> {
 
-	
 }
